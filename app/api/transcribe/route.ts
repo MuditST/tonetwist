@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { SpeechClient } from '@google-cloud/speech';
-import * as fs from 'fs/promises'; 
+import * as fs from 'fs/promises';
 import * as os from 'os';
 import * as path from 'path';
 import { v4 as uuidv4 } from 'uuid';
@@ -9,7 +9,26 @@ import ffmpegInstaller from '@ffmpeg-installer/ffmpeg';
 
 ffmpeg.setFfmpegPath(ffmpegInstaller.path);
 
-const speechClient = new SpeechClient();
+let speechClient: SpeechClient;
+
+if (process.env.GOOGLE_CREDENTIALS_JSON) {
+  try {
+    const credentials = JSON.parse(process.env.GOOGLE_CREDENTIALS_JSON);
+    speechClient = new SpeechClient({ credentials });
+    console.log("Using Google credentials from JSON environment variable.");
+  } catch (e) {
+     console.error("Failed to parse GOOGLE_CREDENTIALS_JSON:", e);
+     speechClient = new SpeechClient();
+  }
+} else if (process.env.GOOGLE_APPLICATION_CREDENTIALS) {
+  
+   console.log("Using Google credentials from file path environment variable.");
+   speechClient = new SpeechClient(); 
+} else {
+   console.error("Google Cloud credentials not found. Set GOOGLE_CREDENTIALS_JSON (for Vercel) or GOOGLE_APPLICATION_CREDENTIALS (for local).");
+   
+   speechClient = new SpeechClient(); 
+}
 
 
 interface GoogleSpeechRecognitionResult {
