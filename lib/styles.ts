@@ -63,7 +63,7 @@ export const enhancementStyles: StyleOption[] = [
     "description": "A deep, rugged voice with weathered warmth, perfect for tales filled with character.",
     "avatar": "🤠",
     "promptDescription": "A deep, raspy baritone voice, shaped by life on the frontier. This rugged cowboy tone should evoke resilience and adventure, perfect for stories about hardship, freedom, and the spirit of the Wild West.",
-    "voiceId": "KTPVrSVAEUSJRClDzBw7",
+    "voiceId": "LNV6ahDtkAOqwn1X3R7a",
     "apiKeyIndex": 2
   },
   {
