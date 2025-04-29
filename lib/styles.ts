@@ -72,7 +72,7 @@ export const enhancementStyles: StyleOption[] = [
     "description": "A cool, calculating voice with a distinct Slavic depth, ideal for espionage thrillers.",
     "avatar": "🕵️‍♂️",
     "promptDescription": "A cool, calculating Russian spy with a deep, authoritative voice. Perfect for espionage, high-stakes situations, or covert operations. This voice should bring an air of mystery and calculated precision.",
-    "voiceId": "rRPLnoWWsKxLg1wPTcjx",
+    "voiceId": "XjdmlV0OFXfXE6Mg2Sb7",
     "apiKeyIndex": 3
   },
   {
